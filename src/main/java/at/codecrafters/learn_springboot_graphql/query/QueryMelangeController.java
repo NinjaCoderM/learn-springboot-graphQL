@@ -24,7 +24,13 @@ public class QueryMelangeController {
         return fname + " " + lname;
     }
 
+    @QueryMapping
+    public String printHeld(@Argument HeldInput heldObj){
+        return heldObj.name + " " + heldObj.age + " " + heldObj.friends.stream().map(fr -> fr.friendName).collect(Collectors.joining(", "));
+    }
 
+    record FriendRecord(String friendName){};
+    record HeldInput(String name, Integer age, List<FriendRecord> friends){};
 
 
 }

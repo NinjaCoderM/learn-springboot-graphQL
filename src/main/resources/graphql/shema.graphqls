@@ -5,5 +5,15 @@ schema{
 type Query {
     firstQuery: String!
     fullName(fname: String!, lname: String!): String
+    printHeld(heldObj: HeldInput): String
 }
 
+input FriendInput {
+    friendName: String!
+}
+
+input HeldInput {
+    name: String!
+    age: Int
+    friends: [FriendInput]
+}
