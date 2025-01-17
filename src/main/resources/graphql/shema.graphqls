@@ -4,6 +4,6 @@ schema{
 
 type Query {
     firstQuery: String!
-
+    fullName(fname: String!, lname: String!): String
 }
 

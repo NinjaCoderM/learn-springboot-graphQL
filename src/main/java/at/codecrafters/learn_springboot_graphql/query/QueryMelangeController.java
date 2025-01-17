@@ -19,5 +19,12 @@ public class QueryMelangeController {
     }
     //@QueryMapping, @SchemaMapping, und @MutationMapping
 
+    @QueryMapping
+    public String fullName(@Argument String fname, @Argument String lname){
+        return fname + " " + lname;
+    }
+
+
+
 
 }
