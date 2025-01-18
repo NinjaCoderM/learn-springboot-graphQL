@@ -2,6 +2,7 @@ package at.codecrafters.learn_springboot_graphql.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import at.codecrafters.learn_springboot_graphql.entity.Address;
 import at.codecrafters.learn_springboot_graphql.entity.Student;
@@ -38,6 +39,8 @@ public class StudentService {
 	public String getLastNameById (long id) {
 		return studentRepository.findById(id).get().getLastName();
 	}
+
+	public Optional<Student> getStudentById (long id) { return studentRepository.findById(id); }
 	
 	public Student createStudent (CreateStudentRequest createStudentRequest) {
 		Student student = new Student(createStudentRequest);
@@ -72,5 +75,7 @@ public class StudentService {
 		
 		return student;
 	}
+
+
 	
 }

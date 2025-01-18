@@ -6,7 +6,35 @@ type Query {
     firstQuery: String!
     fullName(fname: String!, lname: String!): String
     printHeld(heldObj: HeldInput): String
+    student(id: Long!): StudentResponse
 }
+
+scalar Long
+scalar BigDecimal
+type SubjectResponse{
+    id: Long
+    subjectName: String
+    marksObtained: BigDecimal
+}
+
+type StudentResponse {
+    id: Long
+    firstName: String
+    lastName: String
+    email: String
+    street: String
+    city: String
+    learningSubjects: [SubjectResponse]
+}
+
+type Error {
+    message: String!
+    code: String
+}
+
+
+
+
 
 input FriendInput {
     friendName: String!

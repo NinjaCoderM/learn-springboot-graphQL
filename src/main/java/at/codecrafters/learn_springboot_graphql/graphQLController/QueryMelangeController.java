@@ -1,5 +1,10 @@
-package at.codecrafters.learn_springboot_graphql.query;
+package at.codecrafters.learn_springboot_graphql.graphQLController;
 
+import at.codecrafters.learn_springboot_graphql.config.GraphQLExceptionEx;
+import at.codecrafters.learn_springboot_graphql.entity.Student;
+import at.codecrafters.learn_springboot_graphql.response.StudentResponse;
+import at.codecrafters.learn_springboot_graphql.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 
@@ -11,6 +16,9 @@ import java.util.stream.Collectors;
 
 @Controller
 public class QueryMelangeController {
+
+    @Autowired
+    StudentService studentService;
 
     @QueryMapping
     public String firstQuery(){
@@ -31,6 +39,16 @@ public class QueryMelangeController {
 
     record FriendRecord(String friendName){};
     record HeldInput(String name, Integer age, List<FriendRecord> friends){};
+
+    @QueryMapping
+    public StudentResponse student(@Argument("id") long id){
+        Student student = studentService.getStudentById(id).orElse(null);
+        if (student == null) {
+            System.out.println("Student nicht gefunden, werfe Exception");
+            throw new GraphQLExceptionEx("id " + id + " not found!", "Bad request");
+        }
+        return new StudentResponse(student);
+    }
 
 
 }

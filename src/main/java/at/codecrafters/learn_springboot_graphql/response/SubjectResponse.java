@@ -2,18 +2,20 @@ package at.codecrafters.learn_springboot_graphql.response;
 
 import at.codecrafters.learn_springboot_graphql.entity.Subject;
 
+import java.math.BigDecimal;
+
 public class SubjectResponse {
 
 	private Long id;
 	
 	private String subjectName;
 
-	private Double marksObtained;
+	private BigDecimal marksObtained;
 	
 	public SubjectResponse (Subject subject) {
 		this.id = subject.getId();
 		this.subjectName = subject.getSubjectName();
-		this.marksObtained = subject.getMarksObtained();
+		this.marksObtained = subject!=null?BigDecimal.valueOf(subject.getMarksObtained()):null;
 	}
 
 	public Long getId() {
@@ -32,11 +34,11 @@ public class SubjectResponse {
 		this.subjectName = subjectName;
 	}
 
-	public Double getMarksObtained() {
+	public BigDecimal getMarksObtained() {
 		return marksObtained;
 	}
 
-	public void setMarksObtained(Double marksObtained) {
+	public void setMarksObtained(BigDecimal marksObtained) {
 		this.marksObtained = marksObtained;
 	}
 }
