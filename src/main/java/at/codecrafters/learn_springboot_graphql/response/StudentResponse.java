@@ -4,6 +4,7 @@ import java.util.List;
 import at.codecrafters.learn_springboot_graphql.entity.Student;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@SuppressWarnings("ALL")
 public class StudentResponse {
 
 	private long id;

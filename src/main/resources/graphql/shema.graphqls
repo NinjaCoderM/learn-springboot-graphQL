@@ -25,18 +25,17 @@ type StudentResponse {
     email: String
     street: String
     city: String
-    learningSubjects: [SubjectResponse]
+    learningSubjects(subjectNameFilter: SubjectNameFilter = ALL): [SubjectResponse]
+}
+
+enum SubjectNameFilter{
+    ALL, Java, MySQL, MongoDB
 }
 
 type Error {
     message: String!
     code: String
 }
-
-
-
-
-
 input FriendInput {
     friendName: String!
 }
