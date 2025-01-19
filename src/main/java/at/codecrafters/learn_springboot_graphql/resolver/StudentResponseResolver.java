@@ -21,4 +21,15 @@ public class StudentResponseResolver{
 		}
         return learningSubjects;
     }
+    @SchemaMapping(typeName = "StudentResponse", field="fullName")
+    String getFullName(StudentResponse studentResponse){
+        String fullName = "";
+        if (studentResponse.getFirstName() != null) {
+            fullName = studentResponse.getFirstName();
+        }
+        if (studentResponse.getLastName() != null) {
+            fullName += (fullName.isEmpty()?"":" ") + studentResponse.getLastName();
+        }
+        return fullName;
+    }
 }

@@ -13,6 +13,8 @@ public class StudentResponse {
 
 	private String lastName;
 
+	private String fullName;
+
 	private String email;
 	
 	private String street;
@@ -99,5 +101,13 @@ public class StudentResponse {
 
 	public Student getInternal_use_student() {
 		return internal_use_student;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 }
