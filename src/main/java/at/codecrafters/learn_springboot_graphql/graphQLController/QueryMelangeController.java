@@ -25,7 +25,7 @@ public class QueryMelangeController {
         System.out.println("First query called");
         return "Hello World!";
     }
-    //@QueryMapping, @SchemaMapping, und @MutationMapping
+    //@QueryMapping, @SchemaMapping
 
     @QueryMapping
     public String fullName(@Argument String fname, @Argument String lname){

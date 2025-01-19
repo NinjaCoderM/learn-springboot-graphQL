@@ -1,10 +1,12 @@
 package at.codecrafters.learn_springboot_graphql.request;
 
+import java.math.BigDecimal;
+
 public class CreateSubjectRequest {
 
 	private String subjectName;
 	
-	private Double marksObtained;
+	private BigDecimal marksObtained;
 
 	public String getSubjectName() {
 		return subjectName;
@@ -14,11 +16,11 @@ public class CreateSubjectRequest {
 		this.subjectName = subjectName;
 	}
 
-	public Double getMarksObtained() {
+	public BigDecimal getMarksObtained() {
 		return marksObtained;
 	}
 
-	public void setMarksObtained(Double marksObtained) {
+	public void setMarksObtained(BigDecimal marksObtained) {
 		this.marksObtained = marksObtained;
 	}
 }

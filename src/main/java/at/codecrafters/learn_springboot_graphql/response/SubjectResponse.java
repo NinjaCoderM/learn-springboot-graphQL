@@ -15,7 +15,7 @@ public class SubjectResponse {
 	public SubjectResponse (Subject subject) {
 		this.id = subject.getId();
 		this.subjectName = subject.getSubjectName();
-		this.marksObtained = subject!=null?BigDecimal.valueOf(subject.getMarksObtained()):null;
+		this.marksObtained = subject.getMarksObtained();
 	}
 
 	public Long getId() {

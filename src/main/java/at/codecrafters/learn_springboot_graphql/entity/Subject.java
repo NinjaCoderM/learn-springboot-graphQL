@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-
+import java.math.BigDecimal;
 
 
 @Entity
@@ -25,7 +25,7 @@ public class Subject {
 	private String subjectName;
 
 	@Column(name = "marks_obtained")
-	private Double marksObtained;
+	private BigDecimal marksObtained;
 
 	@ManyToOne
 	@JoinColumn(name = "student_id")
@@ -50,11 +50,11 @@ public class Subject {
 		this.subjectName = subjectName;
 	}
 
-	public Double getMarksObtained() {
+	public BigDecimal getMarksObtained() {
 		return marksObtained;
 	}
 
-	public void setMarksObtained(Double marksObtained) {
+	public void setMarksObtained(BigDecimal marksObtained) {
 		this.marksObtained = marksObtained;
 	}
 
