@@ -1,10 +1,7 @@
 package at.codecrafters.learn_springboot_graphql.response;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import at.codecrafters.learn_springboot_graphql.entity.Student;
-import at.codecrafters.learn_springboot_graphql.entity.Subject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StudentResponse {
@@ -23,8 +20,11 @@ public class StudentResponse {
 	private String city;
 	
 	private List<SubjectResponse> learningSubjects;
+
+	private Student internal_use_student;
 	
 	public StudentResponse (Student student) {
+		internal_use_student= student;
 		this.id = student.getId();
 		this.firstName = student.getFirstName();
 		this.lastName = student.getLastName();
@@ -33,12 +33,12 @@ public class StudentResponse {
 		this.street = student.getAddress().getStreet();
 		this.city = student.getAddress().getCity();
 		
-		if (student.getLearningSubjects() != null) {
-			learningSubjects = new ArrayList<SubjectResponse>();
-			for (Subject subject: student.getLearningSubjects()) {
-				learningSubjects.add(new SubjectResponse(subject));
-			}
-		}
+//		if (student.getLearningSubjects() != null) {
+//			learningSubjects = new ArrayList<SubjectResponse>();
+//			for (Subject subject: student.getLearningSubjects()) {
+//				learningSubjects.add(new SubjectResponse(subject));
+//			}
+//		}
 	}
 
 	public long getId() {
@@ -95,5 +95,9 @@ public class StudentResponse {
 
 	public void setLearningSubjects(List<SubjectResponse> learningSubjects) {
 		this.learningSubjects = learningSubjects;
+	}
+
+	public Student getInternal_use_student() {
+		return internal_use_student;
 	}
 }
