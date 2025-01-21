@@ -1,2 +1,20 @@
 # Create Dump
 docker exec -i postgresCont /bin/bash -c "PGPASSWORD=**** pg_dump --username cc codecrafters_db" > C:/CodeCraftersCompany/dumpSquirrel/dump.sql
+
+###GraphQL Variable
+#vorher
+query{
+    student(id: 1){
+        firstname
+        lastname
+    }
+}
+#Variable setzen (z.B. Postman)
+{ id: 1 }
+#Varibale benutzen
+query student($id: Long){ #Datentyp
+    student(id: $id){ #Variable übergeben
+        firstname
+        lastname
+    }
+}
